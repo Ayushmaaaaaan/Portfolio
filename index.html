@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Hero</title>
+
+<!-- Bootstrap 4.4 CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+}
+
+.navbar-brand{
+    font-weight:600;
+    color:#c47b65 !important;
+}
+
+.hero-section{
+    min-height:80vh;
+    overflow: hidden;
+    display:flex;
+    align-items:center;
+    background-image: url('./images/bg.png');
+    background-size: cover;    /* Fills area */
+    background-repeat: no-repeat;
+}
+
+.hero-title{
+    font-size:3.5rem;
+    font-weight:700;
+    line-height:1.2;
+    font-weight: bolder;
+     font-family: "Space Grotesk", sans-serif;
+     line-height: 55px;
+}
+
+.navbar {
+    min-height: 140px;
+    background: #fff;   /* Makes navbar thicker */
+}
+
+.highlight{
+    color:#c47b65;
+}
+
+.hero-video {
+    width: 100%;
+    max-width: 480px;
+}
+
+.hero-text{
+    font-size:1.1rem;
+    color:#555;
+    margin-top:20px;
+    max-width:500px;
+}
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        padding-top: 60px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .hero-video {
+        max-width: 320px;
+        margin-top: 30px;
+        transform: scale(0.95);
+    }
+
+    .hero-left {
+        margin-bottom: 20px;
+    }
+}
+
+.nav-profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.btn-dark-custom{
+    background:#2d2a2a;
+    color:#fff;
+    border-radius:30px;
+    padding:12px 28px;
+    font-weight:600;
+}
+.font-fam{
+     font-family: "Space Grotesk", sans-serif;
+}
+.btn-dark-custom:hover{
+    color: #b08b6d;
+}
+
+.btn-brown{
+    background:#b08b6d;
+    color:#fff;
+    border-radius:30px;
+    padding:12px 28px;
+    font-weight:600;
+
+    position: relative;
+    z-index: 10;
+
+}
+
+.hero-img-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.hero-img{
+    border-radius:20px;
+    width:100%;
+    max-width:380px;
+}
+
+.badge-box{
+    position:absolute;
+    background:rgba(255,255,255,0.8);
+    padding:15px 20px;
+    border-radius:15px;
+    backdrop-filter:blur(5px);
+    font-weight:600;
+    font-size:1rem;
+}
+
+.badge-top{
+    top:20px;
+    right:-30px;
+}
+
+.badge-bottom{
+    bottom:20px;
+    left:-30px;
+}
+
+@media(max-width:991px){
+    .hero-title{
+        font-size:2.5rem;
+    }
+    .hero-section{
+        text-align:center;
+    }
+    .badge-top,
+    .badge-bottom{
+        position:relative;
+        right:auto;
+        left:auto;
+        margin-top:15px;
+    }
+}
+@media (min-width: 1200px) {
+  .container.custom-container {
+    max-width: calc(1140px + 250px); /* 100px left + 100px right */
+  }
+}
+
+.hero-video {
+    width: 100%;
+    max-width: 500px;
+    /*mix-blend-mode: ;*/
+    transform: scale(2.5);
+    filter: brightness(1.2) contrast(1.1);
+
+    
+}
+.video-tint {
+    position: absolute;
+    inset: 0;
+    background: rgba(196, 123, 101, 0.35); /* your tint color */
+    pointer-events: none;
+}
+
+.stats-section {
+    background:#f4ece6;   /* beige tone */
+    padding: 60px 0;
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1f1f1f;
+}
+
+.stats-label {
+    font-size: 1rem;
+    color: #918aa3;
+    margin: 0;
+}
+
+/**/
+.work-section {
+  background: #e9eff4;
+  padding: 100px 0;
+}
+
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  color: #6c757d;
+  max-width: 500px;
+}
+
+.work-card {
+  background: linear-gradient(145deg, #f1f1f1, #dcdcdc);
+  border-radius: 20px;
+    border-radius: 20px;
+
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.work-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+
+.work-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.work-info h6 {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.work-info small {
+  color: #777;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;   /* IMPORTANT */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.expertise-section {
+  background: #d9d0c8;
+  padding: 100px 0;
+}
+
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.pointer{
+    cursor: pointer;
+}
+
+.highlight-text {
+  color: #c47b65;
+}
+
+.expert-card {
+  background: #f4ece6;
+  padding: 30px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.expert-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: #e2e2e2;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.expert-card h6 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.expert-card p {
+  font-size: 14px;
+  color: #6c757d;
+  margin: 0;
+}
+/* CTA */
+.cta-section {
+  background: #f3f3f3;
+  padding: 120px 0;
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  color: #c47b65;
+}
+
+.cta-subtitle {
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.cta-btn {
+  background: #2c2c2c;
+  color: #fff;
+  padding: 14px 35px;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* FOOTER */
+.footer-section {
+  background: #1f3446;
+  color: #fff;
+  padding: 70px 0 40px;
+}
+
+.footer-name {
+  font-weight: 600;
+}
+
+.footer-name span {
+  color: #c47b65;
+}
+
+.footer-role {
+  color: #aab5c0;
+  margin: 0;
+}
+
+.footer-contact {
+  color: #cfd8e3;
+  margin: 0;
+  text-decoration: none;
+}
+
+.footer-divider {
+  border-color: rgba(255,255,255,0.1);
+  margin: 40px 0;
+}
+
+.footer-bottom {
+  color: #8ea0b3;
+  font-size: 14px;
+}
+.footer-contact:hover {
+    color: #fff;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3">
+  <div class="container custom-container">
+    <a class="navbar-brand" href="#"><img src="images/ppf.png" alt="Profile"
+         class="nav-profile-img"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end align-items-center" id="navContent">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link pointer" onclick="scrollToSection(event, 'about')">About</a></li>
+        <li class="nav-item"><a class="nav-link pointer" onclick="scrollToSection(event, 'work')">Work</a></li>
+        <li class="nav-item"><a class="nav-link pointer" onclick="scrollToSection(event, 'skills')">Skills</a></li>
+        <li class="nav-item ml-3">
+          <a class="btn btn-dark-custom" href="https://cal.com/ayushmannyaduv/meeting" target="_blank"  rel="noopener noreferrer" >Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container custom-container px-5">
+    <div class="row align-items-center min-vh-70">
+
+      <!-- Left Content -->
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <h1 class="hero-title">
+          Helping creators build 
+          <span class="highlight">attention-grabbing</span> 
+          content
+        </h1>
+
+        <p class="hero-text">
+          Performance-driven video editing for personal brands, creators, and startups. 
+          10M+ views generated in 2 months through strategic short-form editing.
+        </p>
+
+        <div class="mt-4 d-flex flex-wrap align-items-center">
+          <a href="#" class="btn btn-dark-custom mr-3 mb-2 pointer" onclick="scrollToSection(event, 'work')">View My Work <i class="fa-solid fa-angle-down"></i></a>
+          <a href="https://cal.com/ayushmannyaduv/meeting" target="_blank"  rel="noopener noreferrer" class="btn btn-brown mb-2">
+                   Let's Collaborate
+                </a>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-6 text-center k">
+         <video class="hero-video "
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="videos/cube.webm">
+        <div class="video-tint"></div>
+    </video>
+    </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center font-fam bold " id="about">
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h2 class="stats-number">10M+</h2>
+                <p class="stats-label">Views Generated Last 2 Months</p>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h2 class="stats-number">2+ Yrs</h2>
+                <p class="stats-label">Editing Experience</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="stats-number">400+</h2>
+                <p class="stats-label">Edited Videos</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="work-section">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="mb-5">
+      <p class="section-tag">SELECTED WORK</p>
+      <h2 class="section-title font-fam">Curated short form content</h2>
+      <p class="section-subtitle">
+        Strategic edits crafted for maximum retention and virality across platforms.
+      </p>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="row" id="work">
+
+      <!-- Card 1 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div style="position:relative;aspect-ratio:9/16;">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 2 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div style="position:relative;aspect-ratio:9/16;">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div style="position:relative;aspect-ratio:9/16;">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <!-- row 2 -->
+        <!--  -->
+        <!--  -->
+
+        <!-- Card 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div class="video-wrapper">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 5 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div style="position:relative;aspect-ratio:9/16;">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 6 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="work-card">
+
+            <div style="position:relative;aspect-ratio:9/16;">
+              <iframe
+                    loading="lazy" title="Gumlet video player"
+                    src="https://play.gumlet.io/embed/69a46dc9825d3351d5714fc3?background=false&autoplay=true&loop=true&disable_player_controls=false"
+                    style="border:none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                  referrerpolicy="origin"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+                  </iframe>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="expertise-section" id="skills">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="text-center mb-5 font-fam bold">
+      <p class="section-tag">EXPERTISE</p>
+      <h2 class="section-title">
+        What I <span class="highlight-text">Bring</span>
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="row">
+
+      <!-- Card -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-scissors"></i></div>
+          <h6>Short-Form Editing</h6>
+          <p>Reels, Shorts & TikToks optimized for virality</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+          <h6>Documentary Style</h6>
+          <p>Narrative-driven long-form storytelling</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-microphone"></i></div>
+          <h6>Talking Head Editing</h6>
+          <p>Polished creator & podcast content</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h6>Retention Optimization</h6>
+          <p>Data-backed pacing for maximum watch time</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+          <h6>Hook Strategy</h6>
+          <p>Scroll-stopping openings that convert</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="expert-card">
+          <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+          <h6>Long-Term Collaboration</h6>
+          <p>Reliable partner for ongoing projects</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- CTA SECTION -->
+<section class="cta-section text-center">
+  <div class="container">
+
+    <p class="section-tag">LET’S WORK TOGETHER</p>
+
+    <h2 class="cta-title">
+      Ready to <span class="highlight-text">scale</span> your content?
+    </h2>
+
+    <p class="cta-subtitle">
+      For detailed services and collaboration inquiries, reach out directly.
+      <br>
+      Let's discuss how to grow your brand.
+    </p>
+
+    <a href="https://cal.com/ayushmannyaduv/meeting" target="_blank"   rel="noopener noreferrer" class="btn cta-btn">
+      <i class="fa-regular fa-envelope"></i> Book a Discovery Call
+    </a>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer-section">
+  <div class="container">
+
+    <div class="row align-items-center footer-top">
+
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h5 class="footer-name">Ayushmann <span>Yaduv</span></h5>
+        <p class="footer-role">Performance-Driven Video Editor</p>
+      </div>
+
+      <div class="col-md-6 text-md-right">
+        <a href="mailto:businessayushmann@gmail.com"
+               class="footer-contact mb-1">
+               <i class="fa-regular fa-envelope"></i> businessayushmann@gmail.com
+        </a>       
+        <a href="https://www.instagram.com/ayushmannyaduv1/?hl=en"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="footer-contact">
+           <i class="fa-brands fa-instagram"></i> @ayushmannyaduv1
+        </a>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="text-center footer-bottom">
+      © 2026 Ayushmann Yaduv. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+<script>
+function scrollToSection(event, id) {
+    event.preventDefault();
+
+    const section = document.getElementById(id);
+
+    section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
